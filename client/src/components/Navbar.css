@@ -1,0 +1,180 @@
+ .container{
+  max-width: 140rem;
+  padding: 4.2rem 2.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem 2.4rem;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  width: 100%;
+}
+.logo-brand {
+  flex-shrink: 0; /* Prevent the logo from shrinking */
+  margin-right: 50rem; /* Add margin to create space between logo and nav links */
+}
+
+.logo-brand a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin-right: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 14px;
+  list-style: none;
+   
+}
+.nav-links li {
+  margin: 0;
+}
+
+ul {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+ul li {
+  margin: 0;
+}
+
+/* Hamburger menu styles */
+.hamburger {
+  display: none; /* Hide the hamburger menu by default for larger screens */
+  cursor: pointer;
+}
+
+.bar {
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+.close-btn {
+  display: none; /* Hide the close button initially */
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+.hamburger.active .bar {
+  background-color: transparent;
+}
+
+.close-btn.active {
+  display: block;
+}
+
+/* Other styles outside the media query */
+
+/* Media query for small screens */
+@media (max-width: 479px) {
+  /* Your styles for screens smaller than 480px go here */
+  header {
+    padding: 1rem 1rem; /* Adjust padding for small screens */
+  }
+
+  .logo-brand a {
+    font-size: 1.2rem; /* Adjust font size for small screens */
+  }
+  .hamburger {
+    margin-left: auto; /* Move hamburger to the right side in small screens */
+  }
+
+  .bar {
+    width: 20px;
+    height: 2px;
+    margin: 4px 0; /* Adjust bar dimensions for small screens */
+  }
+
+  .close-btn {
+    font-size: 1.2rem; /* Adjust font size for small screens */
+  }
+}
+
+
+
+
+
+
+
+
+/* ... (Previous styles remain unchanged) */
+
+/* Media queries for navbar responsiveness */
+@media (max-width: 768px) {
+  header {
+    flex-direction: row; /* Set the direction to row for small screens */
+    justify-content: space-between; /* Add space between the logo and hamburger */
+  
+  }
+
+  .logo-brand {
+    flex-shrink: 0; /* Prevent the logo from shrinking */
+    margin-right: 13rem; /* Add margin to create space between logo and nav links */
+    margin-bottom: 1rem;
+  }
+
+  .hamburger {
+    margin-left: auto; /* Push the hamburger to the right by taking up available space */
+  }
+
+  .nav-links {
+    display: none; /* Hide the nav links by default for smaller screens */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    background-color: #333;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  ul {
+    flex-direction: column;
+  }
+
+  ul li {
+    margin: 0.5rem 0;
+  }
+
+  .hamburger {
+    display: block; /* Show the hamburger menu for smaller screens */
+    z-index: 1;
+  }
+
+  .hamburger.active {
+    display: none; /* Hide the open hamburger when the menu is open */
+  }
+
+  .close-btn {
+    display: none; /* Show the close button when the menu is open */
+    font-size: 2rem;
+  }
+
+  .close-btn.active {
+    display: block; /* Show the close button when the menu is open */
+  }
+}
+
+
