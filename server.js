@@ -1,8 +1,7 @@
-// require('dotenv').config();
+require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const path = require("path");
 const authRouter = require("./router/auth-router");
 const contactRouter = require("./router/contact-router");
 const serviceRouter = require("./router/services-router");
@@ -42,12 +41,9 @@ app.use("/api/admin",adminRouter);
 
 app.use(errorMiddleWare);  // use your middleware in server.js 
 
-app.get("/",(req,res)=>{
-  app.use(express.static(path.resolve(__dirname,"client","dist")));
-  res.sendFile(path.resolve(__dirname,"client","dist","index.html"));
-})
 
-const port = 5000;
+
+const port = process.env.PORT;
 ConnectDb().then(()=>{
 app.listen(port, ()=>{
   console.log(`Server running at port : ${port}`);

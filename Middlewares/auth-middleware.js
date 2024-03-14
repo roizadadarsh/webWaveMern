@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user-model");
+require("dotenv").config()
 
 const authMiddleware = async (req,res,next)=>{
     const token  = req.header("Authorization");
@@ -11,7 +12,7 @@ const authMiddleware = async (req,res,next)=>{
     console.log("token from middleware",jwtToken);
 
     try {
-       const isVerify = jwt.verify(jwtToken,"Adarsh1234558585");
+       const isVerify = jwt.verify(jwtToken,process.env.SECRET_KEY);
        const userData = await User.findOne({email: isVerify.email}).select({
         password : 0,
        });
